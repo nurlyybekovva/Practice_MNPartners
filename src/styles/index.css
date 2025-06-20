@@ -1,0 +1,38 @@
+:root {
+  --color-darkest: #021024;
+  --color-darker: #052659;
+  --color-dark: #5483B3;
+  --color-medium: #7DA0CA;
+  --color-light: #C1E8FF;
+  --color-lighter: #F5FBFF;
+  --white: #FFFFFF;
+  --black: #000000;
+  --gray-light: #F5F5F5;
+  --gray-medium: #9CA3AF;
+  --gray-darker: #333333;
+  --text-color: #111;
+
+  --body-font: "Montserrat", sans-serif;
+  --bigger-font-size: 2rem;
+  --big-font-size: 1.5rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+  --tiny-font-size: 0.75rem;
+
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--body-font);
+}
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+}

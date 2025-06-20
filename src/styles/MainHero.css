@@ -1,0 +1,42 @@
+@import './index.css';
+
+.hero-section {
+    background: var(--color-lighter);
+    padding: 50px 0 0;
+}
+
+.hero-content {
+    width: 100vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* background: url('../assets/hero-img.jpg'); */
+    background: var(--color-dark);
+    background-position: center, bottom left;
+    background-size: cover, cover;
+    color: var(--white);
+    height: fit-content;
+    padding: 240px 48px 80px;
+    display: flex;
+    border-radius: 24px;
+}
+
+.hero-content span {
+    max-width: 80%;
+}
+
+.hero-content h1 {
+    font-weight: var(--font-bold);
+    font-size: var(--bigger-font-size);
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.explore-button {
+    background-color: var(--color-darker);
+    color: var(--white);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+}
