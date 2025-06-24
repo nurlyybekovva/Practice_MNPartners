@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import { observer } from 'mobx-react-lite';
+import StoreContext from '../stores/StoreContext';
 import '../styles/Form.css';
 
 const Form = () => {
+    const { appStore } = useContext(StoreContext);
     const { t, i18n } = useTranslation()
     const [fromCity, setFromCity] = useState('')
     const [toCity, setToCity] = useState('')
     const [dateFrom, setDateFrom] = useState('')
     const [dateTo, setDateTo] = useState('')
     const [isReturnFlight, setIsReturnFlight] = useState(true)
-    const [passengers, setPassengers] = useState(t('form.passengers'))
-    const [ticketClass, setTicketClass] = useState(t('form.economy'))
 
     const handleSwapCities = () => {
         const temp = fromCity
@@ -50,7 +51,7 @@ const Form = () => {
                     <label className="input-label to-label">
                         <input
                             type="text"
-                            placeholder="To"
+                            placeholder={t('form.to')}
                             value={toCity}
                             onChange={(e) => setToCity(e.target.value)}
                             className="search-input"
@@ -86,8 +87,8 @@ const Form = () => {
 
                     <div className="passenger-class">
                         <div className="select-container">
-                            <p className="text-gray">{ticketClass}</p>
-                            <p className="passenger-count">{passengers}</p>
+                            <p className="text-gray">{appStore.ticketClass}</p>
+                            <p className="passenger-count">{appStore.passengers}</p>
                         </div>
                     </div>
 
@@ -111,4 +112,4 @@ const Form = () => {
     )
 }
 
-export default Form
+export default observer(Form);

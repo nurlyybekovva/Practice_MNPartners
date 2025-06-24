@@ -6,6 +6,7 @@ import logo from '../assets/icons/logo.png'
 const Footer = () => {
     const { t } = useTranslation();
     const currentYear = new Date().getFullYear();
+    console.log('Footer component rendered');
 
     return (
         <footer className="footer">

@@ -1,9 +1,19 @@
-import React from 'react'
-import '../styles/PriceSection.css'
+import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import { observer } from 'mobx-react-lite';
+import StoreContext from '../stores/StoreContext';
+import '../styles/PriceSection.css';
+
 
 const PriceSection = () => {
+    const { appStore } = useContext(StoreContext);
     const { t } = useTranslation();
+    const currencySymbol = {
+    KZT: '₸',
+    RUB: '₽',
+    USD: '$'
+  }[appStore.selectedCurrency];
+
     return (
         <div className="price-section">
             <div className='price-container'>
@@ -19,7 +29,7 @@ const PriceSection = () => {
                                 <div className="price-card-date">
                                     1&nbsp;Jan<span className="price-card-weekday">, Mon</span>
                                 </div>
-                                <h3 className="price-card-price">000 000 ₸</h3>
+                                <h3 className="price-card-price">000 000 {currencySymbol} </h3>
                             </div>
                             <div className='price-card-info'>
                                 <p>00h 00m {t('priceSection.onTheWay')}</p>
@@ -50,7 +60,7 @@ const PriceSection = () => {
                                 <div className="price-card-date">
                                     1&nbsp;Jan<span className="price-card-weekday">, Mon</span>
                                 </div>
-                                <h3 className="price-card-price">000 000 ₸</h3>
+                                <h3 className="price-card-price">000 000 {currencySymbol}</h3>
                             </div>
                             <div className='price-card-info'>
                                 <p>00h 00m {t('priceSection.onTheWay')}</p>
@@ -79,7 +89,7 @@ const PriceSection = () => {
                                 <div className="price-card-date">
                                     1&nbsp;Jan<span className="price-card-weekday">, Mon</span>
                                 </div>
-                                <h3 className="price-card-price">000 000 ₸</h3>
+                                <h3 className="price-card-price">000 000 {currencySymbol}</h3>
                             </div>
                             <div className='price-card-info'>
                                 <p>00h 00m {t('priceSection.onTheWay')}</p>
@@ -99,4 +109,4 @@ const PriceSection = () => {
     )
 }
 
-export default PriceSection
+export default observer(PriceSection);

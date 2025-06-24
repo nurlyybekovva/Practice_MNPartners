@@ -4,13 +4,15 @@ import '../styles/Navbar.css'
 import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { t } = useTranslation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  console.log('Navbar component rendered');
+  
   return (
     <div className="navbar">
       <div className='navbar-content'>

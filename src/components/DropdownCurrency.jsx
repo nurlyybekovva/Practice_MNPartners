@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { useTranslation } from 'react-i18next';
+import { observer } from 'mobx-react-lite';
+import StoreContext from '../stores/StoreContext';
 import '../styles/DropdownCurrency.css'
 
 const DropdownCurrency = () => {
-  const { t, i18n } = useTranslation();
+  const { appStore } = useContext(StoreContext);
+  const { t } = useTranslation();
   const [isCurrencyOpen, setCurrencyOpen] = useState(false)
   const [isLangOpen, setLangOpen] = useState(false)
-  const [selectedCurrency, setSelectedCurrency] = useState('KZT')
-  const [selectedLang, setSelectedLang] = useState(i18n.language.toUpperCase() || 'RU');
 
   const Currencies = [
     { id: 1, name: 'KZT', desc: t('dropdownCurrency.currency.KZT') },
@@ -21,16 +22,6 @@ const DropdownCurrency = () => {
     { id: 3, name: 'EN', desc: t('dropdownCurrency.language.EN') }
   ]
 
-  useEffect(() => {
-    setSelectedLang(i18n.language.toUpperCase() || 'RU');
-  }, [i18n.language]);
-
-  const handleLanguageChange = (lang) => {
-    i18n.changeLanguage(lang.toLowerCase());
-    setSelectedLang(lang);
-    setLangOpen(false);
-  };
-
   return (
     <div className='dropdowns-container'>
       <div className='dropdown-wrapper'>
@@ -42,7 +33,7 @@ const DropdownCurrency = () => {
               setLangOpen(false)
             }}
           >
-            <span className='selected'>{selectedCurrency}</span>
+            <span className='selected'>{appStore.selectedCurrency}</span>
             <span className='arrow'>{isCurrencyOpen ? '▲' : '▼'}</span>
           </div>
 
@@ -54,7 +45,7 @@ const DropdownCurrency = () => {
                     key={item.id}
                     className='dropdown-item'
                     onClick={() => {
-                      setSelectedCurrency(item.name)
+                      appStore.setCurrency(item.name)
                       setCurrencyOpen(false)
                     }}
                   >
@@ -77,7 +68,7 @@ const DropdownCurrency = () => {
               setCurrencyOpen(false)
             }}
           >
-            <span className='selected'>{selectedLang}</span>
+            <span className='selected'>{appStore.selectedLanguage}</span>
             <span className='arrow'>{isLangOpen ? '▲' : '▼'}</span>
           </div>
 
@@ -88,7 +79,10 @@ const DropdownCurrency = () => {
                   <div
                     key={item.id}
                     className='dropdown-item'
-                    onClick={() => handleLanguageChange(item.name)}
+                    onClick={() => {
+                      appStore.setLanguage(item.name);
+                      setLangOpen(false);
+                    }}
                   >
                     <div className='item-code'>{item.name}</div>
                     <div className='item-desc'>{item.desc}</div>
@@ -103,4 +97,4 @@ const DropdownCurrency = () => {
   )
 }
 
-export default DropdownCurrency
+export default observer(DropdownCurrency);

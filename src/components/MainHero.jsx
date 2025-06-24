@@ -5,6 +5,9 @@ import { useTranslation } from 'react-i18next';
 
 const MainHero = () => {
     const { t } = useTranslation();
+
+    console.log('MainHero component rendered');
+
     return (
         <div>
             <div className='hero-section'>
