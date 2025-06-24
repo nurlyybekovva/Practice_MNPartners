@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
-import '../styles/Form.css'
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import '../styles/Form.css';
 
 const Form = () => {
+    const { t, i18n } = useTranslation()
     const [fromCity, setFromCity] = useState('')
     const [toCity, setToCity] = useState('')
     const [dateFrom, setDateFrom] = useState('')
     const [dateTo, setDateTo] = useState('')
     const [isReturnFlight, setIsReturnFlight] = useState(true)
-    const [passengers, setPassengers] = useState('1 adult')
-    const [ticketClass, setTicketClass] = useState('Economy')
+    const [passengers, setPassengers] = useState(t('form.passengers'))
+    const [ticketClass, setTicketClass] = useState(t('form.economy'))
 
     const handleSwapCities = () => {
         const temp = fromCity
@@ -20,7 +22,7 @@ const Form = () => {
         if (!date) return ''
         const d = new Date(date)
         const options = { month: 'short', day: 'numeric', weekday: 'short' }
-        return d.toLocaleDateString('ru-RU', options)
+        return d.toLocaleDateString(i18n.language, options)
     }
 
     return (
@@ -30,7 +32,7 @@ const Form = () => {
                     <label className="input-label from-label">
                         <input
                             type="text"
-                            placeholder="From"
+                            placeholder={t('form.from')}
                             value={fromCity}
                             onChange={(e) => setFromCity(e.target.value)}
                             className="search-input from"
@@ -64,7 +66,7 @@ const Form = () => {
                                 className="date-input"
                             />
                             <span className="date-display">
-                                {dateFrom ? formatDate(dateFrom) : 'Departure'}
+                                {dateFrom ? formatDate(dateFrom) : t('form.departure')}
                             </span>
                         </div>
                         <div className="date-select">
@@ -77,21 +79,21 @@ const Form = () => {
                                 min={dateFrom}
                             />
                             <span className="date-display">
-                                {dateTo ? formatDate(dateTo) : 'Return'}
+                                {dateTo ? formatDate(dateTo) : t('form.return')}
                             </span>
                         </div>
                     </div>
 
                     <div className="passenger-class">
                         <div className="select-container">
-                            <p className="text-gray">Economy</p>
-                            <p className="passenger-count">1 adult</p>
+                            <p className="text-gray">{ticketClass}</p>
+                            <p className="passenger-count">{passengers}</p>
                         </div>
                     </div>
 
                     <div className='search-button-wrapper'>
                         <button type="submit" className="search-button">
-                            Search flights
+                            {t('form.search')}
                         </button>
                     </div>
 
@@ -102,7 +104,7 @@ const Form = () => {
             <div className="additional-options">
                 <button type="button" className="option-button">
                     <i className="fas fa-route"></i>
-                    <span>Create multi-city route</span>
+                    <span>{t('form.multiCity')}</span>
                 </button>
             </div>
         </form>

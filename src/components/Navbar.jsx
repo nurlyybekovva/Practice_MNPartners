@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import DropdownCurrency from './DropdownCurrency'
 import '../styles/Navbar.css' 
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { t } = useTranslation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -27,17 +29,17 @@ const Navbar = () => {
 
       <div className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
         <ul>
-          <li><a href="#" className='link'>Link</a></li>
-          <li><a href="#" className='link'>Link</a></li>
-          <li><a href="#" className='link'>Link</a></li>
-          <li><a href="#" className='link'>Link</a></li>
-          <li><a href="#" className='link'>Link</a></li>
+          <li><a href="#" className='link'>{t('navbar.link')}</a></li>
+          <li><a href="#" className='link'>{t('navbar.link')}</a></li>
+          <li><a href="#" className='link'>{t('navbar.link')}</a></li>
+          <li><a href="#" className='link'>{t('navbar.link')}</a></li>
+          <li><a href="#" className='link'>{t('navbar.link')}</a></li>
         </ul>
       </div>
 
       <div className='account'>
         <i className="fas fa-user icon"></i>
-        <span className='acc-name'>Account</span>
+        <span className='acc-name'>{t('navbar.account')}</span>
         <DropdownCurrency />
       </div>
       </div>

@@ -1,7 +1,9 @@
 import React from 'react'
 import '../styles/PriceSection.css'
+import { useTranslation } from 'react-i18next';
 
 const PriceSection = () => {
+    const { t } = useTranslation();
     return (
         <div className="price-section">
             <div className='price-container'>
@@ -20,16 +22,16 @@ const PriceSection = () => {
                                 <h3 className="price-card-price">000 000 ₸</h3>
                             </div>
                             <div className='price-card-info'>
-                                <p>00h 00m on the way</p>
-                                <p>Layover 0&nbsp;hours</p>
+                                <p>00h 00m {t('priceSection.onTheWay')}</p>
+                                <p>{t('priceSection.layover')} 0&nbsp;{t('priceSection.hours')}</p>
                             </div>
 
                         </article>
                         <button className="choose-btn">
-                            <span>Choose</span>
+                            <span>{t('priceSection.choose')}</span>
                         </button>
                         <strong className="price-card-badge price-card-badge-light">
-                            <span>Cheapest</span>
+                            <span>{t('priceSection.cheapest')}</span>
                         </strong>
                     </a>
                 </div>
@@ -51,16 +53,16 @@ const PriceSection = () => {
                                 <h3 className="price-card-price">000 000 ₸</h3>
                             </div>
                             <div className='price-card-info'>
-                                <p>00h 00m on the way</p>
-                                <p>Layover 0&nbsp;hours</p>
+                                <p>00h 00m {t('priceSection.onTheWay')}</p>
+                                <p>{t('priceSection.layover')} 0&nbsp;{t('priceSection.hours')}</p>
                             </div>
 
                         </article>
                         <button className="choose-btn">
-                            <span>Choose</span>
+                            <span>{t('priceSection.choose')}</span>
                         </button>
                         <strong className="price-card-badge price-card-badge-dark">
-                            <span>Fastest</span>
+                            <span>{t('priceSection.fastest')}</span>
                         </strong>
                     </a>
                 </div>
@@ -80,18 +82,17 @@ const PriceSection = () => {
                                 <h3 className="price-card-price">000 000 ₸</h3>
                             </div>
                             <div className='price-card-info'>
-                                <p>00h 00m on the way</p>
-                                <p>Layover 0&nbsp;hours</p>
+                                <p>00h 00m {t('priceSection.onTheWay')}</p>
+                                <p>{t('priceSection.layover')} 0&nbsp;{t('priceSection.hours')}</p>
                             </div>
 
                         </article>
                         <button className="choose-btn">
-                            <span>Choose</span>
+                            <span>{t('priceSection.choose')}</span>
                         </button>
                     </a>
                 </div>
 
-                
             </div>
 
         </div>

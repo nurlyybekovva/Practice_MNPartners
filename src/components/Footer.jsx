@@ -1,8 +1,10 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import '../styles/Footer.css'
 import logo from '../assets/icons/logo.png'
 
 const Footer = () => {
+    const { t } = useTranslation();
     const currentYear = new Date().getFullYear();
 
     return (
@@ -11,31 +13,31 @@ const Footer = () => {
                 <div className="footer-main">
                     <div className="company-info">
                         <img src={logo} alt="" className="footer-logo" />
-                        <p className="company-desc">Company description here</p>
+                        <p className="company-desc">{t('footer.companyDesc')}</p>
                     </div>
 
                     <div className="footer-links">
                         <div className="link-group">
-                            <h4>Company</h4>
+                            <h4>{t('footer.company')}</h4>
                             <ul>
-                                <li><a href="">Link</a></li>
-                                <li><a href="">Link</a></li>
+                                <li><a href="">{t('footer.link')}</a></li>
+                                <li><a href="">{t('footer.link')}</a></li>
                             </ul>
                         </div>
 
                         <div className="link-group">
-                            <h4>Quick Links</h4>
+                            <h4>{t('footer.quickLinks')}</h4>
                             <ul>
-                                <li><a href="">Link</a></li>
-                                <li><a href="">Link</a></li>
-                                <li><a href="">Link</a></li>
-                                <li><a href="">Link</a></li>
-                                <li><a href="">Link</a></li>
+                                <li><a href="">{t('footer.link')}</a></li>
+                                <li><a href="">{t('footer.link')}</a></li>
+                                <li><a href="">{t('footer.link')}</a></li>
+                                <li><a href="">{t('footer.link')}</a></li>
+                                <li><a href="">{t('footer.link')}</a></li>
                             </ul>
                         </div>
 
                         <div className='link-group'>
-                            <h4>Contact us</h4>
+                            <h4>{t('footer.contactUs')}</h4>
                             <div className="contact-info">
                                 <div className="contact-item">
                                     <i className="fas fa-phone icon"></i>
@@ -47,7 +49,7 @@ const Footer = () => {
                                 </div>
                                 <div className="address">
                                     <i className="fas fa-location-dot icon"></i>
-                                    <p>Address of the company</p>
+                                    <p>{t('footer.address')}</p>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +59,7 @@ const Footer = () => {
                 <div className="footer-divider"></div>
 
                 <div className="footer-bottom">
-                    <p>© {currentYear} Company Name. All rights reserved.</p>
+                    <p>{t('footer.copyright', { year: currentYear })}</p>
 
                     <div className="social-links">
                         <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">

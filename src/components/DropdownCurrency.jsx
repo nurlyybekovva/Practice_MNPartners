@@ -1,23 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next';
 import '../styles/DropdownCurrency.css'
 
 const DropdownCurrency = () => {
+  const { t, i18n } = useTranslation();
   const [isCurrencyOpen, setCurrencyOpen] = useState(false)
   const [isLangOpen, setLangOpen] = useState(false)
   const [selectedCurrency, setSelectedCurrency] = useState('KZT')
-  const [selectedLang, setSelectedLang] = useState('RU')
+  const [selectedLang, setSelectedLang] = useState(i18n.language.toUpperCase() || 'RU');
 
   const Currencies = [
-    { id: 1, name: 'KZT', desc: 'Kazakhstan Tenge' },
-    { id: 2, name: 'RUB', desc: 'Russian Rouble' },
-    { id: 3, name: 'USD', desc: 'US Dollar' }
+    { id: 1, name: 'KZT', desc: t('dropdownCurrency.currency.KZT') },
+    { id: 2, name: 'RUB', desc: t('dropdownCurrency.currency.RUB') },
+    { id: 3, name: 'USD', desc: t('dropdownCurrency.currency.USD') }
   ]
 
   const Languages = [
-    { id: 1, name: 'RU', desc: 'Русский' },
-    { id: 2, name: 'KZ', desc: 'Қазақ' },
-    { id: 3, name: 'EN', desc: 'English' }
+    { id: 1, name: 'RU', desc: t('dropdownCurrency.language.RU') },
+    { id: 2, name: 'KZ', desc: t('dropdownCurrency.language.KZ') },
+    { id: 3, name: 'EN', desc: t('dropdownCurrency.language.EN') }
   ]
+
+  useEffect(() => {
+    setSelectedLang(i18n.language.toUpperCase() || 'RU');
+  }, [i18n.language]);
+
+  const handleLanguageChange = (lang) => {
+    i18n.changeLanguage(lang.toLowerCase());
+    setSelectedLang(lang);
+    setLangOpen(false);
+  };
 
   return (
     <div className='dropdowns-container'>
@@ -76,10 +88,7 @@ const DropdownCurrency = () => {
                   <div
                     key={item.id}
                     className='dropdown-item'
-                    onClick={() => {
-                      setSelectedLang(item.name)
-                      setLangOpen(false)
-                    }}
+                    onClick={() => handleLanguageChange(item.name)}
                   >
                     <div className='item-code'>{item.name}</div>
                     <div className='item-desc'>{item.desc}</div>
