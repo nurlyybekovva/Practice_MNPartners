@@ -1,47 +1,51 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { useTranslation } from 'react-i18next'
+import { observer } from 'mobx-react-lite'
+import StoreContext from '../stores/StoreContext'
 import { Box, Button, Menu, MenuItem, Typography } from '@mui/material'
 
-const currencies = [
-  { id: 1, name: 'KZT', desc: 'Kazakhstan Tenge' },
-  { id: 2, name: 'RUB', desc: 'Russian Rouble' },
-  { id: 3, name: 'USD', desc: 'US Dollar' }
-]
-
-const languages = [
-  { id: 1, name: 'RU', desc: 'Русский' },
-  { id: 2, name: 'KZ', desc: 'Қазақ' },
-  { id: 3, name: 'EN', desc: 'English' }
-]
-
 const DropdownCurrency = () => {
+  const { appStore } = useContext(StoreContext)
+  const { t } = useTranslation()
+
+  // Currency and language lists with i18n
+  const currencies = [
+    { id: 1, name: 'KZT', desc: t('dropdownCurrency.currency.KZT') },
+    { id: 2, name: 'RUB', desc: t('dropdownCurrency.currency.RUB') },
+    { id: 3, name: 'USD', desc: t('dropdownCurrency.currency.USD') }
+  ]
+
+  const languages = [
+    { id: 1, name: 'RU', desc: t('dropdownCurrency.language.RU') },
+    { id: 2, name: 'KZ', desc: t('dropdownCurrency.language.KZ') },
+    { id: 3, name: 'EN', desc: t('dropdownCurrency.language.EN') }
+  ]
+
+  // Menu state
   const [currencyAnchor, setCurrencyAnchor] = useState(null)
   const [langAnchor, setLangAnchor] = useState(null)
-  const [selectedCurrency, setSelectedCurrency] = useState(currencies[0])
-  const [selectedLang, setSelectedLang] = useState(languages[0])
 
+  // Handlers for currency
   const handleCurrencyClick = (event) => {
     setCurrencyAnchor(event.currentTarget)
   }
-
   const handleCurrencyClose = () => {
     setCurrencyAnchor(null)
   }
-
   const handleCurrencySelect = (currency) => {
-    setSelectedCurrency(currency)
+    appStore.setCurrency(currency.name)
     setCurrencyAnchor(null)
   }
 
+  // Handlers for language
   const handleLangClick = (event) => {
     setLangAnchor(event.currentTarget)
   }
-
   const handleLangClose = () => {
     setLangAnchor(null)
   }
-
   const handleLangSelect = (lang) => {
-    setSelectedLang(lang)
+    appStore.setLanguage(lang.name)
     setLangAnchor(null)
   }
 
@@ -49,10 +53,25 @@ const DropdownCurrency = () => {
     <Box sx={{ display: 'flex', gap: 2 }}>
       {/* Currency Menu */}
       <Box>
-        <Button variant="none" color="inherit" onClick={handleCurrencyClick}
-          sx={{ padding: "8px 12px", color: '#fff', fontWeight: 600, textTransform: 'none' }}
-          endIcon={<span style={{ fontSize: 12, transition: 'transform 0.3s ease' }}>{currencyAnchor ? '▲' : '▼'}</span>}>
-          {selectedCurrency.name}
+        <Button
+          variant="outlined"
+          color="inherit"
+          onClick={handleCurrencyClick}
+          sx={{
+            padding: "8px 12px",
+            color: '#fff',
+            fontWeight: 600,
+            borderColor: '#fff',
+            textTransform: 'none',
+            minWidth: 64
+          }}
+          endIcon={
+            <span style={{ fontSize: 12 }}>
+              {currencyAnchor ? '▲' : '▼'}
+            </span>
+          }
+        >
+          {appStore.selectedCurrency}
         </Button>
         <Menu
           anchorEl={currencyAnchor}
@@ -62,7 +81,7 @@ const DropdownCurrency = () => {
           {currencies.map((item) => (
             <MenuItem
               key={item.id}
-              selected={selectedCurrency.name === item.name}
+              selected={appStore.selectedCurrency === item.name}
               onClick={() => handleCurrencySelect(item)}
             >
               <Box>
@@ -76,10 +95,25 @@ const DropdownCurrency = () => {
 
       {/* Language Menu */}
       <Box>
-        <Button variant="none" color="inherit" onClick={handleLangClick}
-          sx={{ padding: "8px 12px", color: '#fff', fontWeight: 600, textTransform: 'none' }}
-          endIcon={<span style={{ fontSize: 12, transition: 'transform 0.3s ease' }}>{langAnchor ? '▲' : '▼'}</span>}>
-          {selectedLang.name}
+        <Button
+          variant="outlined"
+          color="inherit"
+          onClick={handleLangClick}
+          sx={{
+            padding: "8px 12px",
+            color: '#fff',
+            fontWeight: 600,
+            borderColor: '#fff',
+            textTransform: 'none',
+            minWidth: 64
+          }}
+          endIcon={
+            <span style={{ fontSize: 12 }}>
+              {langAnchor ? '▲' : '▼'}
+            </span>
+          }
+        >
+          {appStore.selectedLanguage}
         </Button>
         <Menu
           anchorEl={langAnchor}
@@ -89,7 +123,7 @@ const DropdownCurrency = () => {
           {languages.map((item) => (
             <MenuItem
               key={item.id}
-              selected={selectedLang.name === item.name}
+              selected={appStore.selectedLanguage === item.name}
               onClick={() => handleLangSelect(item)}
             >
               <Box>
@@ -104,4 +138,4 @@ const DropdownCurrency = () => {
   )
 }
 
-export default DropdownCurrency
+export default observer(DropdownCurrency)

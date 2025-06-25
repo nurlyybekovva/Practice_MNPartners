@@ -3,6 +3,7 @@
 1. **Install dependencies**
 
    In the project directory, run:
+
    ```
    npm install
    ```
@@ -18,6 +19,7 @@
 3. **Build for production**
 
    To create a production build, run:
+
    ```
    npm run build
    ```
@@ -25,13 +27,22 @@
 4. **Preview the production build**
 
    After building, you can preview the production build locally:
+
    ```
    npm run preview
    ```
 
+This project supports multiple languages (English, Russian, Kazakh) using react-i18next. Translation resources are defined in src/i18n.js.
+To install i18n dependencies:
+
+```
+npm install i18next react-i18next i18next-browser-languagedetector
+```
+
 ---
 
-**Requirements:**  
+**Requirements:**
+
 - Node.js (v16 or higher recommended)
 - npm
 

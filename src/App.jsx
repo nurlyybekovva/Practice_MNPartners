@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import Price from './components/PriceSection'
 
 const App = () => {
+  console.log('App component rendered');
   return (
     <div className='container'>
       <Navbar />

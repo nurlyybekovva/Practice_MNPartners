@@ -1,16 +1,21 @@
 import React from 'react'
 import '../styles/MainHero.css'
 import Form from './Form.jsx'
+import { useTranslation } from 'react-i18next';
 
 const MainHero = () => {
+    const { t } = useTranslation();
+
+    console.log('MainHero component rendered');
+
     return (
         <div>
             <div className='hero-section'>
                 <div className='hero-content'>
                     <span>
-                        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. </h1>
+                        <h1>{t('mainHero.title')}</h1>
                         <button className='explore-button'>
-                            Explore Now
+                            {t('mainHero.explore')}
                         </button>
                     </span>
                 </div>
