@@ -10,9 +10,8 @@ const App = () => {
   return (
     <div className='container'>
       <Navbar />
-      <div>
-        <h1>..</h1>
-      </div>
+      <MainHero />
+      <Price />
       <Footer />
     </div>
   )

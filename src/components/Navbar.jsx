@@ -13,6 +13,7 @@ const navLinks = [
   { labelKey: 'navbar.link5', href: '#' },
 ]
 
+
 const Navbar = () => {
   const { t } = useTranslation()
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -48,7 +49,7 @@ const Navbar = () => {
                 href={link.href}
                 sx={{ fontSize: '14px', fontWeight: 600, color: '#021024' }}
               >
-                {t(link.labelKey)}
+                {t('navbar.link')}
               </MenuItem>
             ))}
           </Menu>
@@ -81,7 +82,7 @@ const Navbar = () => {
                 '&:hover': { color: '#7DA0CA' },
               }}
             >
-              {t(Navbar.link)}
+              {t('navbar.link')}
             </Box>
           ))}
         </Box>

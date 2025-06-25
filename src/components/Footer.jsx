@@ -42,7 +42,7 @@ const Footer = () => {
             <Box sx={{ display: 'flex', flexDirection: 'column', mb: 2 }}>
               <Box component="img" src={logo} alt="Logo" sx={{ width: 100, mb: 2 }} />
               <Typography variant="h6" sx={{ fontWeight: 700 }}>
-                Company Name
+                {t('footer.company')}
               </Typography>
             </Box>
             <Typography variant="body2" sx={{ color: '#b0b8c1' }}>

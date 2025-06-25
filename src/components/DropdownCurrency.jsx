@@ -54,7 +54,7 @@ const DropdownCurrency = () => {
       {/* Currency Menu */}
       <Box>
         <Button
-          variant="outlined"
+          variant="none"
           color="inherit"
           onClick={handleCurrencyClick}
           sx={{
@@ -96,7 +96,7 @@ const DropdownCurrency = () => {
       {/* Language Menu */}
       <Box>
         <Button
-          variant="outlined"
+          variant="none"
           color="inherit"
           onClick={handleLangClick}
           sx={{
