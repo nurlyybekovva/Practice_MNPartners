@@ -37,7 +37,8 @@ const resources = {
         quickLinks: 'Quick Links',
         contactUs: 'Contact us',
         address: 'Address of the company',
-        copyright: '© {{year}} Company Name. All rights reserved.'
+        copyright: '© {{year}} Company Name. All rights reserved.',
+        link: 'Link'
       },
       dropdownCurrency: {
         currency: {
@@ -87,7 +88,8 @@ const resources = {
         quickLinks: 'Быстрые ссылки',
         contactUs: 'Связаться с нами',
         address: 'Адрес компании',
-        copyright: '© {{year}} Название компании. Все права защищены.'
+        copyright: '© {{year}} Название компании. Все права защищены.',
+        link: 'Ссылка'
       },
       dropdownCurrency: {
         currency: {
@@ -137,7 +139,8 @@ const resources = {
         quickLinks: 'Жылдам сілтемелер',
         contactUs: 'Бізбен байланыс',
         address: 'Компания мекенжайы',
-        copyright: '© {{year}} Компания атауы. Барлық құқықтар қорғалған.'
+        copyright: '© {{year}} Компания атауы. Барлық құқықтар қорғалған.',
+        link: 'Сілтеме'
       },
       dropdownCurrency: {
         currency: {
