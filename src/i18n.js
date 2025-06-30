@@ -129,7 +129,7 @@ const resources = {
         fastest: 'Ең жылдам',
         hours: 'сағат',
         onTheWay: 'жолда',
-        layover: 'ауысу (пересадка)'
+        layover: 'Ауысу'
       },
       footer: {
         companyDesc: 'Компания сипаттамасы осында',
