@@ -13,7 +13,7 @@ export default {
       departure: 'Вылет',
       return: 'Возврат',
       economy: 'Эконом',
-      passengers: '1 взрослый',
+      passengers: 'Пассажиры',
       search: 'Найти рейсы',
       multiCity: 'Создать маршрут с несколькими городами',
       class: 'Класс',
@@ -50,4 +50,11 @@ export default {
     business: 'Бизнес',
     first: 'Первый класс',
     economy: 'Эконом',
-  }
+    cities: {
+      Astana: 'Астана',
+      Almaty: 'Алматы',
+      Petropavlovsk: 'Петропавловск',
+      Aktobe: 'Актобе',
+      Karagandy: 'Караганда',
+    },
+}

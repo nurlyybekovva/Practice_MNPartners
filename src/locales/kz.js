@@ -13,7 +13,7 @@ export default {
       departure: 'Ұшу',
       return: 'Қайту',
       economy: 'Эконом',
-      passengers: '1 ересек',
+      passengers: 'Жолаушылар',
       search: 'Рейстерді іздеу',
       multiCity: 'Бірнеше қала маршрутын жасау',
       class: 'Санат (класс)',
@@ -50,4 +50,11 @@ export default {
     business: 'Бизнес',
     first: 'Бірінші класс',
     economy: 'Эконом',
-  }
+    cities: {
+      Astana: 'Астана',
+      Almaty: 'Алматы',
+      Petropavlovsk: 'Петропавловск',
+      Aktobe: 'Актобе',
+      Karagandy: 'Караганды',
+    },
+}
