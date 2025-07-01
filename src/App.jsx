@@ -1,9 +1,9 @@
 import React from 'react'
 import './styles/index.css'
-import Navbar from './components/Navbar'
-import MainHero from './components/MainHero' 
-import Footer from './components/Footer'
-import Price from './components/PriceSection'
+import Navbar from './components/Navbar/Navbar'
+import MainHero from './components/Form/MainHero' 
+import Footer from './components/Footer/Footer'
+import Price from './components/PriceCard/PriceSection'
 
 const App = () => {
   console.log('App component rendered');

@@ -1,0 +1,49 @@
+export default {
+    navbar: {
+        account: 'Аккаунт',
+        link: 'Ссылка'
+    },
+    mainHero: {
+        title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+        explore: 'Исследовать сейчас'
+    },
+    form: {
+        from: 'Откуда',
+        to: 'Куда',
+        departure: 'Вылет',
+        return: 'Возврат',
+        economy: 'Эконом',
+        passengers: '1 взрослый',
+        search: 'Найти рейсы',
+        multiCity: 'Создать маршрут с несколькими городами'
+    },
+    priceSection: {
+        choose: 'Выбрать',
+        cheapest: 'Самый дешевый',
+        fastest: 'Самый быстрый',
+        hours: 'часов',
+        onTheWay: 'в пути',
+        layover: 'Пересадка'
+    },
+    footer: {
+        companyDesc: 'Описание компании здесь',
+        company: 'Компания',
+        quickLinks: 'Быстрые ссылки',
+        contactUs: 'Связаться с нами',
+        address: 'Адрес компании',
+        copyright: '© {{year}} Название компании. Все права защищены.',
+        link: 'Ссылка'
+    },
+    dropdownCurrency: {
+        currency: {
+            KZT: 'Казахстанский тенге',
+            RUB: 'Российский рубль',
+            USD: 'Доллар США'
+        },
+        language: {
+            EN: 'Английский',
+            RU: 'Русский',
+            KZ: 'Казахский'
+        }
+    }
+}

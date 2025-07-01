@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { observer } from 'mobx-react-lite'
-import StoreContext from '../stores/StoreContext'
+import StoreContext from '../../stores/StoreContext'
 import { Box, Button, IconButton, Paper, Typography, Stack, useMediaQuery, useTheme } from '@mui/material'
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz'
 import RouteIcon from '@mui/icons-material/Route'

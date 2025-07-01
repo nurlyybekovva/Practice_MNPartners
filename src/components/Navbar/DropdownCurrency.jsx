@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { observer } from 'mobx-react-lite'
-import StoreContext from '../stores/StoreContext'
+import StoreContext from '../../stores/StoreContext'
 import { Box, Button, Menu, MenuItem, Typography } from '@mui/material'
 
 const DropdownCurrency = () => {

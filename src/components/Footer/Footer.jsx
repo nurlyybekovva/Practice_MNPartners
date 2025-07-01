@@ -8,7 +8,7 @@ import PhoneIcon from '@mui/icons-material/Phone'
 import EmailIcon from '@mui/icons-material/Email'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import { useTranslation } from 'react-i18next'
-import logo from '../assets/icons/logo.png'
+import logo from '../../assets/logo.png'
 
 const companyLinks = [
   { label: 'footer.link', href: '#' },
