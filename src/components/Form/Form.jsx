@@ -173,11 +173,11 @@ const Form = () => {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                minWidth: 200,
+                minWidth: 230,
                 borderTop: isMobile ? '1px solid var(--gray-medium)' : 0,
               }}
             >
-              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
                 <Typography sx={{ color: 'var(--gray-darker)', fontSize: 14 }}>
                   {t('form.passengers')}
                 </Typography>
@@ -217,7 +217,7 @@ const Form = () => {
                 type="submit"
                 variant="contained"
                 sx={{
-                  px: 3,
+                  px: 4,
                   py: 2,
                   background: 'var(--color-dark)',
                   color: 'var(--white)',
