@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Box, Typography, Link, Avatar, Card, CardContent, Badge } from '@mui/material'
+import { Box, Typography, Link, Avatar, Card, CardContent, Chip, Stack } from '@mui/material'
 import FlightDetails from './FlightDetails'
 
 const flexRow = { display: 'flex', flexDirection: 'row' }
 const flexCol = { display: 'flex', flexDirection: 'column' }
-const badgeVariants = {
-    'price-card-badge-dark': { background: 'var(--color-dark)' },
-    'price-card-badge-light': { background: 'var(--color-medium)' },
-}
 
+const badgeVariants = {
+    cheapest: { background: 'var(--color-dark)' },
+    fastest: { background: 'var(--color-medium)' },
+}
 
 const PriceCard = ({ card, currencySymbol, t }) => {
     const [openModal, setOpenModal] = useState(false)
@@ -19,28 +19,26 @@ const PriceCard = ({ card, currencySymbol, t }) => {
         <>
             <Card elevation={1} sx={{ minWidth: { xs: '90%', sm: '500px' }, mx: 3, my: 1, borderRadius: 4, overflow: 'visible' }}>
                 <CardContent sx={{ padding: 2, position: 'relative' }}>
-                    {card.badge && (
-                        <Box
-                            sx={{
-                                position: 'absolute',
-                                top: '-12px',
-                                left: 32,
-                                p: '3px 16px',
-                                borderRadius: '8px',
-                                fontSize: 'var(--normal-font-size)',
-                                fontWeight: 'var(--font-semi-bold)',
-                                color: 'var(--white)',
-                                zIndex: 2,
-                                whiteSpace: 'nowrap',
-                                ...(badgeVariants[card.badgeClass] || {}),
-                            }}
-                        >
-                            {t
-                                ? t(`priceSection.${card.badge}`)
-                                : card.badge}
-                        </Box>
+                    {card.badges && card.badges.length > 0 && (
+                        <Stack sx={{display: 'flex', flexDirection: 'row', gap: 2, position: 'absolute', top: '-12px', left: 32, zIndex: 2}}>
+                            {card.badges.map((badge) => (
+                                <Chip
+                                    key={badge}
+                                    label={t(`ticket.${badge}`)}
+                                    sx={{
+                                        fontWeight: 600,
+                                        fontSize: '12px',
+                                        color: '#fff',
+                                        textTransform: 'uppercase',
+                                        whiteSpace: 'nowrap',
+                                        ...badgeVariants[badge],
+                                    }}
+                                />
+                            ))}
+                        </Stack>
+
                     )}
-                    <Link 
+                    <Link
                         onClick={handleOpen}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -54,6 +52,7 @@ const PriceCard = ({ card, currencySymbol, t }) => {
                             textDecoration: 'none',
                             color: 'var(--black)',
                             px: { xs: 1.5, lg: 2 },
+                            py: { xs: 1, lg: 1.5},
                             position: 'relative',
                         }}>
                         <Box sx={{ ...flexCol, width: '100%' }}>
@@ -80,7 +79,7 @@ const PriceCard = ({ card, currencySymbol, t }) => {
                                                 {card.dep}
                                             </Typography>
                                             <Typography component="p" sx={{ fontSize: '14px', color: 'gray' }}>
-                                                {card.depair}
+                                                {card.depAirCode}
                                             </Typography>
                                         </Box>
                                         <Typography component="p" sx={{ fontSize: '14px' }}>—</Typography>
@@ -89,17 +88,17 @@ const PriceCard = ({ card, currencySymbol, t }) => {
                                                 {card.arr}
                                             </Typography>
                                             <Typography component="p" sx={{ fontSize: '14px', color: 'gray' }}>
-                                                {card.arrair}
+                                                {card.arrAirCode}
                                             </Typography>
                                         </Box>
                                     </Box>
                                 </Box>
                                 <Box>
                                     <Typography component="p" sx={{ m: 0, fontSize: '14px' }}>
-                                        {card.time} {t('priceSection.onTheWay')}
+                                        {card.time} {t('ticket.onTheWay')}
                                     </Typography>
                                     <Typography component="p" sx={{ m: 0, fontSize: '14px' }}>
-                                        {t('priceSection.layover')} {card.layover} {t('priceSection.hours')}
+                                        {t('ticket.layover')} {card.layover} {t('ticket.hours')}
                                     </Typography>
                                 </Box>
                             </Box>
