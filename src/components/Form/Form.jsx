@@ -39,7 +39,6 @@ const Form = () => {
     return localeMap.en;
   };
 
-  // Обновление store при изменении
   useEffect(() => {
     appStore.setPassengers(passengers);
     appStore.setTicketClass(flightClass);
@@ -60,7 +59,7 @@ const Form = () => {
             direction={{ xs: 'column', md: 'row' }}
             alignItems={{ xs: 'stretch', md: 'center' }}
             spacing={0}
-            sx={{ background: '#fff', flexWrap: 'wrap' }}
+            sx={{ background: '#fff', flexWrap: 'nowrap', width: '100%' }}
           >
             {/* From/To + Swap */}
             {isMobile ? (
@@ -213,7 +212,7 @@ const Form = () => {
             </Box>
 
             {/* Search Button */}
-            <Box sx={{ display: 'flex', alignSelf: 'stretch' }}>
+            <Box sx={{ display: 'flex', alignSelf: 'center', minWidth: { xs: '100%', md: '150px' } }}>
               <Button
                 type="submit"
                 variant="contained"
@@ -226,6 +225,8 @@ const Form = () => {
                   fontWeight: 600,
                   boxShadow: 'none',
                   height: '100%',
+                  width: '100%',
+                  borderRadius: isMobile ? 0 : '0 8px 8px 0'
                 }}
                 fullWidth
               >
