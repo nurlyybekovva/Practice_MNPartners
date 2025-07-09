@@ -3,9 +3,9 @@ const api = axios.create({
     baseURL: 'http://192.168.122.181.nip.io:38080',
 });
 
-
 export const AllApi = {
 
+    // Interceptor
     // TicketController
     getTicket: ({ page = 0, size = 100 }) =>
         api.get('/api/ticket',

@@ -25,7 +25,9 @@ const MainHero = () => {
           <Box
             className="hero-content"
             sx={{
-              background: 'var(--color-dark)',
+              background: 'var(--color-medium)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
               flex: 1,
               width: '100%',
               maxWidth: '1200px',

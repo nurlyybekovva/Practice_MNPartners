@@ -1,10 +1,15 @@
 export default {
   navbar: {
+    about: 'About Us',
+    contacts: 'Contact Us',
+    services: 'Services',
+    faq: 'FAQ',
+    home: 'Home',
     account: 'Account',
     link: 'Link',
   },
   mainHero: {
-    title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    title: 'The cheapest and most affordable flight tickets are here!',
     explore: 'Explore Now',
   },
   form: {
@@ -36,6 +41,10 @@ export default {
     address: 'Address of the company',
     copyright: '© 2025 Company Name. All rights reserved.',
     link: 'Link',
+    about: 'About Us',
+    services: 'Services',
+    faq: 'FAQ',
+    home: 'Home',
   },
   dropdownCurrency: {
     currency: {

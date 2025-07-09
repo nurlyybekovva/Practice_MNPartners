@@ -12,14 +12,14 @@ const DateFields = ({ dateFrom, setDateFrom, dateTo, setDateTo, isReturnFlight, 
         display: 'flex',
         alignItems: 'center',
         flex: 'none',
-        width: { xs: '50%', lg: '180px' },
+        width: { xs: '50%', lg: '200px' },
         borderRight: '1px solid var(--gray-medium)',
         borderTop: isMobile ? '1px solid var(--gray-medium)' : 0,
         background: 'var(--white)',
         px: 2, py: 1.5,
       }}>
         <DatePicker
-          label={t('form.departure')}
+          label={dateFrom ? '' : t('form.departure')}
           value={dateFrom}
           onChange={newValue => {
             setDateFrom(newValue);
@@ -48,14 +48,14 @@ const DateFields = ({ dateFrom, setDateFrom, dateTo, setDateTo, isReturnFlight, 
         display: 'flex',
         alignItems: 'center',
         flex: 'none',
-        width: { xs: '50%', lg: '180px' },
+        width: { xs: '50%', lg: '200px' },
         borderRight: '1px solid var(--gray-medium)',
         borderTop: isMobile ? '1px solid var(--gray-medium)' : 0,
         background: 'var(--white)',
         px: 2, py: 1.5,
       }}>
         <DatePicker
-          label={t('form.return')}
+          label={dateTo ? '' : t('form.return')}
           value={dateTo}
           onChange={setDateTo}
           disabled={!isReturnFlight}

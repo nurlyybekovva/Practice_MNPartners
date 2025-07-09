@@ -37,7 +37,7 @@ class AppStore {
     this.ticketClass = ticketClass;
   }
 
-  async fetchCity() {
+  async fetchCity(page = 0, size = 100) {
     this.cityLoading = true;
     this.cityError = null;
 

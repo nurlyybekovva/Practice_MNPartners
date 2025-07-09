@@ -1,10 +1,15 @@
 export default {
   navbar: {
+    about: 'Біз туралы',
+    contacts: 'Байланыс',
+    services: 'Қызметтер',
+    faq: 'Сұрақ-жауап',
+    home: 'Басты бет',
     account: 'Аккаунт',
     link: 'Сілтеме',
   },
   mainHero: {
-    title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    title: 'Ең арзан және тиімді әуе билеттері бізде!',
     explore: 'Қазір зерттеу',
   },
   form: {
@@ -36,6 +41,10 @@ export default {
     address: 'Компания мекенжайы',
     copyright: '© 2025 Компания атауы. Барлық құқықтар қорғалған.',
     link: 'Сілтеме',
+    about: 'Біз туралы',
+    services: 'Қызметтер',
+    faq: 'Сұрақ-жауап',
+    home: 'Басты бет',
   },
   dropdownCurrency: {
     currency: {

@@ -6,11 +6,11 @@ import DropdownCurrency from './DropdownCurrency'
 import { useTranslation } from 'react-i18next'
 
 const navLinks = [
-  { labelKey: 'navbar.link1', href: '#' },
-  { labelKey: 'navbar.link2', href: '#' },
-  { labelKey: 'navbar.link3', href: '#' },
-  { labelKey: 'navbar.link4', href: '#' },
-  { labelKey: 'navbar.link5', href: '#' },
+  { labelKey: 'navbar.home', href: '/' },
+  { labelKey: 'navbar.about', href: '/about' },
+  { labelKey: 'navbar.services', href: '/services' },
+  { labelKey: 'navbar.faq', href: '/faq' },
+  { labelKey: 'navbar.contacts', href: '/contacts' },
 ]
 
 
@@ -49,7 +49,7 @@ const Navbar = () => {
                 href={link.href}
                 sx={{ fontSize: '14px', fontWeight: 600, color: '#021024' }}
               >
-                {t('navbar.link')}
+                {t(link.labelKey)}
               </MenuItem>
             ))}
           </Menu>
@@ -82,7 +82,7 @@ const Navbar = () => {
                 '&:hover': { color: '#7DA0CA' },
               }}
             >
-              {t('navbar.link')}
+              {t(link.labelKey)}
             </Box>
           ))}
         </Box>

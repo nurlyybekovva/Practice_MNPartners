@@ -9,10 +9,10 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { enUS, ru, kk } from 'date-fns/locale';
 import DateFields from './DateFields';
+import CitySelect from './CitySelect';
+import PassengerClassSelect from './PassengerClassSelect';
 
 const localeMap = { en: enUS, ru: ru, kz: kk };
-
-const cities = ['Astana', 'Almaty', 'Petropavlovsk', 'Aktobe', 'Karagandy'];
 
 const Form = () => {
   const theme = useTheme();
@@ -20,6 +20,12 @@ const Form = () => {
 
   const { appStore } = useContext(StoreContext);
   const { t, i18n } = useTranslation();
+  useEffect(() => {
+    appStore.fetchCity()
+  }, [])
+
+  const cities = appStore.cityData?.cityResponseDTOList || [];
+
   const [fromCity, setFromCity] = useState('');
   const [toCity, setToCity] = useState('');
   const [dateFrom, setDateFrom] = useState(null);
@@ -65,38 +71,22 @@ const Form = () => {
             {isMobile ? (
               <Box sx={{ display: 'flex', flexDirection: 'row', width: '100%', alignItems: 'stretch' }}>
                 <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <Select
+                  <CitySelect
+                    cities={cities}
                     value={fromCity}
-                    onChange={(e) => setFromCity(e.target.value)}
-                    displayEmpty
-                    renderValue={(selected) => selected || t('form.from')}
-                    sx={{ minWidth: '100px', '& .MuiSelect-select': { p: '12px 16px', fontSize: 18, background: 'white', borderBottom: '1px solid var(--gray-medium)' } }}
-                  >
-                    <MenuItem value="" disabled>
-                      {t('form.from')}
-                    </MenuItem>
-                    {cities.map((city) => (
-                      <MenuItem key={city} value={city}>
-                        {t(`cities.${city}`)}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                  <Select
+                    setValue={setFromCity}
+                    label={t('form.from')}
+                    t={t}
+                    sx={{ p: '8px 12px', boxSizing: 'border-box', borderBottom: '1px solid var(--gray-medium)' }}
+                  />
+                  <CitySelect
+                    cities={cities}
                     value={toCity}
-                    onChange={(e) => setToCity(e.target.value)}
-                    displayEmpty
-                    renderValue={(selected) => selected || t('form.to')}
-                    sx={{ minWidth: '100px', '& .MuiSelect-select': { p: '12px 16px', fontSize: 18, background: 'white', borderBottom: isMobile ? 0 : '1px solid var(--gray-medium)', borderRadius: 0 } }}
-                  >
-                    <MenuItem value="" disabled>
-                      {t('form.to')}
-                    </MenuItem>
-                    {cities.map((city) => (
-                      <MenuItem key={city} value={city}>
-                        {t(`cities.${city}`)}
-                      </MenuItem>
-                    ))}
-                  </Select>
+                    setValue={setToCity}
+                    label={t('form.to')}
+                    t={t}
+                    sx={{ p: '8px 12px', boxSizing: 'border-box' }}
+                  />
                 </Box>
                 <Box sx={{ alignSelf: 'center', height: '100%' }}>
                   <IconButton
@@ -110,22 +100,15 @@ const Form = () => {
               </Box>
             ) : (
               <>
-                <Select
+                <CitySelect
+                  cities={cities}
                   value={fromCity}
-                  onChange={(e) => setFromCity(e.target.value)}
-                  displayEmpty
-                  renderValue={(selected) => selected || t('form.from')}
-                  sx={{ flex: 1, minWidth: { xs: '100px', lg: '200px' }, '& .MuiSelect-select': { p: { xs: '12px 16px', md: '24px 28px 24px 16px' }, fontSize: 18, background: 'white', borderRight: '1px solid var(--gray-medium)' } }}
-                >
-                  <MenuItem value="" disabled>
-                    {t('form.from')}
-                  </MenuItem>
-                  {cities.map((city) => (
-                    <MenuItem key={city} value={city}>
-                      {t(`cities.${city}`)}
-                    </MenuItem>
-                  ))}
-                </Select>
+                  setValue={setFromCity}
+                  label={t('form.from')}
+                  t={t}
+                  sx={{ p: '16px 24px 16px 12px', boxSizing: 'border-box' }}
+                  popperWidth={400}
+                />
                 <IconButton
                   onClick={handleSwapCities}
                   size="small"
@@ -133,24 +116,17 @@ const Form = () => {
                 >
                   <SwapHorizIcon />
                 </IconButton>
-                <Select
+                <CitySelect
+                  cities={cities}
                   value={toCity}
-                  onChange={(e) => setToCity(e.target.value)}
-                  displayEmpty
-                  renderValue={(selected) => selected || t('form.to')}
-                  sx={{ flex: 1, minWidth: { xs: '100px', lg: '200px' }, '& .MuiSelect-select': { p: { xs: '12px 16px', md: '24px 48px 24px 28px' }, fontSize: 18, background: 'white', borderRight: '1px solid var(--gray-medium)', borderRadius: 0 } }}
-                >
-                  <MenuItem value="" disabled>
-                    {t('form.to')}
-                  </MenuItem>
-                  {cities.map((city) => (
-                    <MenuItem key={city} value={city}>
-                      {t(`cities.${city}`)}
-                    </MenuItem>
-                    ))}
-                  </Select>
-                </>
-              )}
+                  setValue={setToCity}
+                  label={t('form.to')}
+                  t={t}
+                  sx={{ p: '16px 12px 16px 24px', boxSizing: 'border-box' }}
+                  popperWidth={400}
+                />
+              </>
+            )}
 
             {/* Dates with DatePicker */}
             <DateFields
@@ -177,7 +153,7 @@ const Form = () => {
                 borderTop: isMobile ? '1px solid var(--gray-medium)' : 0,
               }}
             >
-              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                 <Typography sx={{ color: 'var(--gray-darker)', fontSize: 14 }}>
                   {t('form.passengers')}
                 </Typography>

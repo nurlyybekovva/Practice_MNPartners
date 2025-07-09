@@ -1,10 +1,15 @@
 export default {
   navbar: {
+    about: 'О нас',
+    contacts: 'Контакты',
+    services: 'Услуги',
+    faq: 'Вопрос-ответ',
+    home: 'Главная',
     account: 'Аккаунт',
     link: 'Ссылка',
   },
   mainHero: {
-    title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    title: 'Самые дешёвые и выгодные авиабилеты — у нас!',
     explore: 'Исследовать сейчас',
   },
   form: {
@@ -36,6 +41,10 @@ export default {
     address: 'Адрес компании',
     copyright: '© 2025 Название компании. Все права защищены.',
     link: 'Ссылка',
+    about: 'О нас',
+    services: 'Услуги',
+    faq: 'Вопрос-ответ',
+    home: 'Главная',
   },
   dropdownCurrency: {
     currency: {

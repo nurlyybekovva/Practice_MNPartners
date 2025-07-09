@@ -11,16 +11,13 @@ import { useTranslation } from 'react-i18next'
 import logo from '../../assets/logo.png'
 
 const companyLinks = [
-  { label: 'footer.link', href: '#' },
-  { label: 'footer.link', href: '#' },
+  { labelKey: 'footer.about', to: '/about' },
+  { labelKey: 'footer.services', to: '/services' },
 ]
 
 const quickLinks = [
-  { label: 'footer.link', href: '#' },
-  { label: 'footer.link', href: '#' },
-  { label: 'footer.link', href: '#' },
-  { label: 'footer.link', href: '#' },
-  { label: 'footer.link', href: '#' },
+  { labelKey: 'footer.home', to: '/' },
+  { labelKey: 'footer.faq', to: '/faq' },
 ]
 
 const contactLinks = [
@@ -69,7 +66,7 @@ const Footer = () => {
                       '&:hover': { color: '#7DA0CA' },
                     }}
                   >
-                    {t(link.label)}
+                    {t(link.labelKey)}
                   </Link>
                 ))}
               </Stack>
@@ -91,7 +88,7 @@ const Footer = () => {
                       '&:hover': { color: '#7DA0CA' },
                     }}
                   >
-                    {t(link.label)}
+                    {t(link.labelKey)}
                   </Link>
                 ))}
               </Stack>
