@@ -139,53 +139,10 @@ const Form = () => {
             />
 
             {/* Passenger & Class */}
-            <Box
-              sx={{
-                flex: 1,
-                background: 'var(--white)',
-                px: 2,
-                py: 1,
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                minWidth: 230,
-                borderTop: isMobile ? '1px solid var(--gray-medium)' : 0,
-              }}
-            >
-              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                <Typography sx={{ color: 'var(--gray-darker)', fontSize: 14 }}>
-                  {t('form.passengers')}
-                </Typography>
-                <TextField
-                  variant="standard"
-                  value={passengers}
-                  onChange={(e) => setPassengers(Math.max(1, e.target.value))}
-                  type="number"
-                  InputProps={{
-                    disableUnderline: true,
-                    sx: { fontSize: 18, color: '#000', border: 'none', width: '60px', px: 0 },
-                  }}
-                  sx={{ width: '100%', '.MuiInputBase-input': { padding: 0 } }}
-                />
-              </Box>
-              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                <Typography sx={{ color: 'var(--gray-darker)', fontSize: 14 }}>
-                  {t('form.class')}
-                </Typography>
-                <Select
-                  value={flightClass}
-                  onChange={(e) => setFlightClass(e.target.value)}
-                  variant="standard"
-                  disableUnderline
-                  sx={{ fontSize: 18, color: '#000', '.MuiSelect-select': { padding: 0 } }}
-                >
-                  <MenuItem value="economy">{t('economy')}</MenuItem>
-                  <MenuItem value="business">{t('business')}</MenuItem>
-                  <MenuItem value="first">{t('first')}</MenuItem>
-                </Select>
-              </Box>
-            </Box>
+            <PassengerClassSelect
+              onPassengersChange={(data) => console.log('Passengers:', data)}
+              onClassChange={(value) => console.log('Class:', value)}
+            />
 
             {/* Search Button */}
             <Box sx={{ display: 'flex', alignSelf: 'center', minWidth: { xs: '100%', md: '150px' } }}>

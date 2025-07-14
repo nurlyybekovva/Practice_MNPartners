@@ -1,18 +1,20 @@
 import React from 'react'
-import './styles/index.css'
-import Navbar from './components/Navbar/Navbar'
-import MainHero from './components/Form/MainHero' 
-import Footer from './components/Footer/Footer'
-import Price from './components/PriceCard/PriceSection'
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
+import Services from './pages/Services';
 
 const App = () => {
   console.log('App component rendered');
   return (
-    <div className='container'>
-      <Navbar />
-      <MainHero />
-      <Price />
-      <Footer />
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contacts" element={<ContactUs />} />
+        <Route path="/services" element={<Services />} />
+      </Routes>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from 'mobx';
-import i18n from '/src/i18n';
+import i18n from '/src/i18n/i18n';
 import { AllApi } from '../api/allApi';
 
 class AppStore {

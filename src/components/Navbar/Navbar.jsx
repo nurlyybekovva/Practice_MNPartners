@@ -45,7 +45,7 @@ const Navbar = () => {
               <MenuItem
                 key={link.labelKey}
                 onClick={handleMenuClose}
-                component="a"
+                component='a'
                 href={link.href}
                 sx={{ fontSize: '14px', fontWeight: 600, color: '#021024' }}
               >
@@ -69,7 +69,7 @@ const Navbar = () => {
         <Box className="navbar-links" sx={{ display: { xs: 'none', md: 'flex' }, gap: '2.5rem' }}>
           {navLinks.map((link) => (
             <Box
-              component="a"
+              component='a'
               key={link.labelKey}
               href={link.href}
               className="navbar-link"
