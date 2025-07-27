@@ -27,7 +27,7 @@ const Navbar = () => {
   }
 
   return (
-    <AppBar position="static" elevation={0} sx={{ backgroundColor: '#021024', color: '#fff', padding: '10px 0' }}>
+    <AppBar position="static" elevation={0} sx={{ backgroundColor: '#021024', color: '#fff' }}>
       <Toolbar sx={{ maxWidth: 'lg', width: '100vw', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         {/* Mobile Menu Icon */}
         <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

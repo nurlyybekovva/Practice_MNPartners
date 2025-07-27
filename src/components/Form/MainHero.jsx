@@ -35,7 +35,7 @@ const MainHero = () => {
               padding: { xs: '64px 16px 40px', md: '180px 70px 60px' },
               borderRadius: 2,
               boxSizing: 'border-box',
-              overflowX: 'hidden', // Prevent horizontal scroll
+              overflowX: 'hidden',
             }}
           >
             <Typography variant="h2" sx={{ fontWeight: 700, mb: 3, fontSize: { xs: '1.5rem', md: '2rem' } }}>

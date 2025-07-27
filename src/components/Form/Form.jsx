@@ -142,6 +142,7 @@ const Form = () => {
             <PassengerClassSelect
               onPassengersChange={(data) => console.log('Passengers:', data)}
               onClassChange={(value) => console.log('Class:', value)}
+              t={t}
             />
 
             {/* Search Button */}
